@@ -10,8 +10,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image,TouchableOpacity} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import Boy from './Boy';
-// import NavigationBar from './NavigationBar';//自定义组件
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,7 +18,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component {
+export default class App extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -47,18 +45,7 @@ export default class App extends Component {
             renderSelectedIcon={() => <Image source={require('./res/images/iconHomeActive.png')} />}
             badgeText="1"
             onPress={() => this.setState({ selectedTab: 'home' })}>
-            <View style={styles.home}>
-              {/* <NavigationBar 
-                title = {'BOOY'} 
-                style = {{backgroundColor:'#ee6363'}} 
-                leftButton = {renderButton(require('./res/images/ic_arrow_back_white_36pt.png'))}
-                rightButton = {renderButton(require('./res/images/ic_arrow_back_white_36pt.png'))}
-                rightButton={
-                  <TouchableOpacity>
-                    <Image source={require('./res/images/ic_star_navbar.png')}/>
-                  </TouchableOpacity>}
-               /> */}
-            </View>
+            <View style={styles.home}></View>
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'contact'}

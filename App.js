@@ -7,109 +7,29 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image,TouchableOpacity} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import AppStackNavigator from './js/navigators/AppNavigators'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
-type Props = {};
+export default AppStackNavigator;
 
-export default class App extends Component<Props> {
-  constructor(props){
-    super(props);
-    this.state = {
-      selectedTab : 'home'
-    }
-  }
-  renderButton(image){
-    return <TouchableOpacity>
-    <Image style={{width:22,height:22,margin:5}} source={image}/>
-  </TouchableOpacity>
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        {/* <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text> */}
-        <TabNavigator>
-          <TabNavigator.Item
-            selected={this.state.selectedTab === 'home'}
-            title="Home"
-            selectedTitleStyle={{color:'red'}}
-            renderIcon={() => <Image style={[styles.image,{tintColor:'pink'}]} source={require('./res/images/iconHome.png')} />}
-            renderSelectedIcon={() => <Image source={require('./res/images/iconHomeActive.png')} />}
-            badgeText="1"
-            onPress={() => this.setState({ selectedTab: 'home' })}>
-            <View style={styles.home}></View>
-          </TabNavigator.Item>
-          <TabNavigator.Item
-            selected={this.state.selectedTab === 'contact'}
-            title="Contact"
-            renderIcon={() => <Image source={require('./res/images/iconContact.png')} />}
-            renderSelectedIcon={() => <Image source={require('./res/images/iconContactActive.png')} />}
-            onPress={() => this.setState({ selectedTab: 'contact' })}>
-            <View style={styles.Profile}></View>
-          </TabNavigator.Item>
-          <TabNavigator.Item
-            selected={this.state.selectedTab === 'location'}
-            title="Location"
-            renderIcon={() => <Image source={require('./res/images/iconLocation.png')} />}
-            renderSelectedIcon={() => <Image source={require('./res/images/iconLocationActive.png')} />}
-            onPress={() => this.setState({ selectedTab: 'location' })}>
-            <View style={styles.home}></View>
-          </TabNavigator.Item>
-          <TabNavigator.Item
-            selected={this.state.selectedTab === 'profile'}
-            title="Profile"
-            renderIcon={() => <Image source={require('./res/images/iconProfile.png')} />}
-            renderSelectedIcon={() => <Image source={require('./res/images/iconProfileActive.png')} />}
-            onPress={() => this.setState({ selectedTab: 'profile' })}>
-            <View style={styles.Profile}></View>
-          </TabNavigator.Item>
-      </TabNavigator>
-      </View>
-    );
-  }
-}
+// import React from "react";
+// import { View, Text } from "react-native";
+// import { createStackNavigator, createAppContainer } from "react-navigation";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center', 
-    // alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  // welcome: {
-  //   fontSize: 20,
-  //   textAlign: 'center',
-  //   margin: 10,
-  // },
-  // instructions: {
-  //   textAlign: 'center',
-  //   color: '#333333',
-  //   marginBottom: 5,
-  // },
-  home:{
-    flex:1,
-    backgroundColor: 'red',
-    justifyContent:'center',
-    textAlign:'center'
-  },
-  Profile:{
-    flex:1,
-    backgroundColor: 'yellow',
-    justifyContent:'center',
-    textAlign:'center'
-  },
-  image:{
-    width:22,
-    height:22
-  }
-});
+// class HomeScreen extends React.Component {
+//   render() {
+//     return (
+//       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//         <Text>Home Screen</Text>
+//       </View>
+//     );
+//   }
+// }
+
+// const AppNavigator = createStackNavigator({
+//   Home: {
+//     screen: HomeScreen
+//   }
+// });
+
+// export default createAppContainer(AppNavigator);
