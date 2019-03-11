@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View,Button, TextInput} from 'react-native';
+import {StyleSheet, Text, View,Button, TextInput, StatusBar} from 'react-native';
 
 export default class DetailsScreen extends Component{
   constructor(props){
@@ -27,8 +27,16 @@ export default class DetailsScreen extends Component{
     const showText = getParam('mode') === 'edit' ? '正在编辑' : '编辑完成';
     return (
         <View style={styles.container}>
+          <StatusBar backgroundColor={'red'} barStyle={'light-content'}/>
             <Text style={styles.welcome}>Details</Text>
             <View style={{ marginBottom:20}}>
+              <Text>{showText}</Text>
+              <TextInput
+                  style={styles.input}
+                  onChangeText={text => {
+                      setParams({title: text, name: 'Lucy'});
+                  }}
+              />
               <Button
                   title="Go Back"
                   onPress={() => {
@@ -52,13 +60,7 @@ export default class DetailsScreen extends Component{
                   }}
               />
             </View>
-            <Text>{showText}</Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={text => {
-                    setParams({title: text, name: 'Lucy'});
-                }}
-            />
+            
         </View>
     );
 }
